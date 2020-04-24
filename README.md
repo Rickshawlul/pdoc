@@ -1,2 +1,2 @@
-# pdoc
+# Pdoc
 Game repository. Temporary
