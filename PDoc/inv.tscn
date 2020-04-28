@@ -1,13 +1,89 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://lefthand.tscn" type="PackedScene" id=1]
-[ext_resource path="res://righthand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://полотенце1_сжато.png" type="Texture" id=1]
+[ext_resource path="res://травы_подсветка.png" type="Texture" id=2]
 [ext_resource path="res://inv.gd" type="Script" id=3]
+[ext_resource path="res://полотенце1_подсветка.png" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://trans.png" type="Texture" id=6]
+[ext_resource path="res://transclick.png" type="Texture" id=7]
+[ext_resource path="res://iconизм.png" type="Texture" id=8]
+[ext_resource path="res://травы_сжато.png" type="Texture" id=9]
+[ext_resource path="res://очки_сжато.png" type="Texture" id=10]
+[ext_resource path="res://очки_подсветка.png" type="Texture" id=11]
+[ext_resource path="res://бинты_сжато.png" type="Texture" id=12]
+[ext_resource path="res://бинты_подсветка.png" type="Texture" id=13]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "glassesObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "cloathObjectKnife",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "transformObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "cloathObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "grasObject",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 30.08, 28.8867 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "glassesObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "cloathObjectKnife",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "transformObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "cloathObject",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "grasObject",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 30.8859, 30.353 )
 
 [node name="inv" type="Node2D"]
@@ -15,22 +91,30 @@ script = ExtResource( 3 )
 
 [node name="LH" type="Area2D" parent="."]
 
-[node name="Lefthand" parent="LH" instance=ExtResource( 1 )]
-position = Vector2( 180.5, 210.59 )
-animation = "deleteObject"
+[node name="Lefthand" type="AnimatedSprite" parent="LH"]
+position = Vector2( 482.544, 223.265 )
+frames = SubResource( 5 )
+animation = "empty"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LH"]
-position = Vector2( 181.112, 212.189 )
-shape = SubResource( 1 )
+position = Vector2( 480.612, 225.599 )
+shape = SubResource( 6 )
 
 [node name="RH" type="Area2D" parent="."]
 
-[node name="Righthand" parent="RH" instance=ExtResource( 2 )]
-position = Vector2( 705.851, 219.45 )
-animation = "deleteObject"
+[node name="Righthand" type="AnimatedSprite" parent="RH"]
+position = Vector2( 674.748, 221.742 )
+frames = SubResource( 4 )
+animation = "empty"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RH"]
-position = Vector2( 706.511, 218.067 )
-shape = SubResource( 2 )
+position = Vector2( 672.66, 222.617 )
+shape = SubResource( 3 )
 [connection signal="input_event" from="LH" to="." method="_on_LH_input_event"]
 [connection signal="input_event" from="RH" to="." method="_on_RH_input_event"]
