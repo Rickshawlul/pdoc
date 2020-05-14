@@ -66,7 +66,7 @@ curve = SubResource( 1 )
 
 [node name="peasantSpawnLocation" type="PathFollow2D" parent="peasantPath"]
 position = Vector2( 4.60327, 682.353 )
-rotation = 0.0148244
+rotation = 0.0148088
 
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -74,6 +74,17 @@ curve = SubResource( 2 )
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 76.249
+margin_top = 195.146
+margin_right = 116.249
+margin_bottom = 235.146
+rect_scale = Vector2( 30, 30 )
+text = "BENIS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="delete" from="delete" to="inv" method="_on_delete_delete"]
 [connection signal="cloath" from="cloath" to="inv" method="_on_cloath_cloath"]
 [connection signal="gras" from="gras" to="inv" method="_on_gras_gras"]
